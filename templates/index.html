@@ -6,31 +6,62 @@
     <title>Conversor de Divisas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-primario: #0f766e;
+            --color-secundario: #14b8a6;
+            --color-acento: #f59e0b;
+            --color-texto: #1f2937;
+        }
         body {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+            color: var(--color-texto);
+        }
+        h2 {
+            font-weight: 600;
+            color: var(--color-primario);
+        }
+        .form-label {
+            font-weight: 500;
         }
         .converter-card {
+            width: 100%;
+            max-width: 420px;
+            border: none;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
+            background: #ffffff;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--color-secundario);
+            box-shadow: 0 0 0 0.25rem rgba(20, 184, 166, 0.25);
+        }
+        .btn-primary {
+            background-color: var(--color-primario);
+            border-color: var(--color-primario);
+            font-weight: 600;
+        }
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--color-acento);
+            border-color: var(--color-acento);
         }
         .result-box {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #198754;
+            font-weight: 600;
+            color: var(--color-primario);
         }
         .navbar {
             font-family: 'Montserrat', sans-serif;
             background-color: #ffffff;
-            border-bottom: 4px solid #1e3c72;
+            border-bottom: 4px solid var(--color-primario);
             padding: 10px 0;
         }
         .navbar img {
             height: 55px;
         }
         .navbar-title {
-            color: #1e3c72;
+            color: var(--color-primario);
             font-size: 1.4rem;
             font-weight: 600;
             margin: 0;
@@ -38,6 +69,19 @@
         .navbar-subtitle {
             color: #6c757d;
             font-size: 0.9rem;
+        }
+        /* Responsive: pantallas pequeñas (móvil) */
+        @media (max-width: 576px) {
+            .converter-card {
+                border-radius: 12px;
+                padding: 1.5rem !important;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .result-box {
+                font-size: 1.25rem;
+            }
         }
     </style>
 </head>
@@ -52,15 +96,15 @@
         </div>
     </nav>
 
-    <div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
-    <div class="card shadow-lg p-4 converter-card" style="width: 400px;">
+    <div class="d-flex justify-content-center align-items-center p-3" style="min-height: 90vh;">
+    <div class="card shadow-lg p-4 converter-card">
         <h2 class="text-center mb-4">💱 Conversor de Divisas</h2>
 
         <form method="post">
             <div class="mb-3">
                 <label class="form-label">Cantidad</label>
-                <input type="number" step="0.01" name="amount" 
-                       class="form-control form-control-lg" 
+                <input type="number" step="0.01" name="amount"
+                       class="form-control form-control-lg"
                        placeholder="Introduce cantidad" required>
             </div>
 
